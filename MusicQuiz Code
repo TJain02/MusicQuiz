@@ -1,0 +1,68 @@
+var readLineSync=require("readline-sync")
+
+var score=0;
+
+var userName = readLineSync.question("What is your Name?")
+console.log("Welcome!"+ userName +" to the Music Quiz?")
+console.log("Rules of the game:")
+console.log("> +1 will be given for every correct answer.")
+console.log("> This game comprises of 4 questions.")
+console.log("> You just have to mention the options among 'a', 'b' and 'c' to answer the questions correctly")
+console.log("Let's begin the game!")
+console.log("-------------------------------")
+var highScore={
+  name : "Tushar",
+  highScore : 4,
+}
+
+function quiz(question,answer)
+{
+  var userAnswer= readLineSync.question(question)
+  if(userAnswer===answer)
+  {
+    console.log("Yay! You are right!")
+    score=score+1;
+  }
+    else
+  {
+      console.log("Oops! Incorrect answer!")
+      console.log("The corret answer is:"+ answer)
+  }
+  console.log("Your score is:"+ score)
+  console.log("----------------------")
+}
+
+var questions=[
+{
+  question:"How old is the flute(in years)? a.5000 b.35000 c.2000",
+  answer:"b"
+},
+{
+  question:"Which instrument can have 4strings, 6 strings and 12 strings as well? a.Sitar b.Violin c.Guitar",
+  answer:"c"
+},
+{
+  question:"In how many languages could Kishore Kumar sing? a.10 b.5 c.2",
+  answer:"a"
+},
+{
+  question:"At what age did Lata Mangeshkar record her first song? a.17 b.13 c.20",
+  answer:"b"
+}
+];
+
+for(i=0;i<questions.length;i++)
+{
+  var currentQuestion=questions[i]
+ quiz(currentQuestion.question,currentQuestion.answer)
+}
+  if(score >= highScore.highScore){
+    console.log("You are the new high scorer!")
+    console.log("-------------------------------")
+    console.log("The new high score is scored by "+userName+" and the high score is "+score)
+    highScore.name=userName;
+    highScore.highScore=score;
+  }
+else{
+  console.log("The high score is "+highScore.highScore+", scored by "+highScore.name)
+}
