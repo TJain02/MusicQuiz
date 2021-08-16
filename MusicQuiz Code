@@ -48,6 +48,10 @@ var questions=[
 {
   question:"At what age did Lata Mangeshkar record her first song? a.17 b.13 c.20",
   answer:"b"
+},
+{
+  question:"Who has a world record of playing 27 musical instruments? a.Sufjan Stevens b.Taylor Swift c.Ebin George",
+  answer:"c"
 }
 ];
 
